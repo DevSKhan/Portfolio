@@ -94,7 +94,7 @@ body {
 
 .nameContainer {
     position: absolute;
-    top: 23%;
+    top: 21%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30vw;
@@ -118,7 +118,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 30vw;
-    height: 10vh;
+    height: 5vh;
 }
 
 .skillBox {
@@ -1035,19 +1035,29 @@ body {
 }
 .contactMe h2{
     font-size: 24px;
+    text-decoration: none;
 }
 .social h2{
+    text-decoration: none;
     font-size: 24px;
 }
 .contactMe h4{
+    text-decoration: none;
     font-weight: 500;
     color: #333333;
     font-size: 20px;
 }
 .social h4{
+    
     font-weight: 500;
     font-size: 20px;
     color: #333333;
+}
+.social a{
+    text-decoration-line: none;
+}
+.contactMe a{
+    text-decoration-line: none;
 }
 #footerText{
     position: absolute;
@@ -1055,6 +1065,7 @@ body {
     font-size: 15vw;
     font-weight: 900;
     letter-spacing: -9px;
+    white-space: nowrap;
 }
 .Model3d{
     position: absolute;
@@ -1102,6 +1113,7 @@ body {
     animation: up-down-2 2.8s infinite linear;
 }
 .moveBack{
+    color: #000;
     cursor: pointer;
     position: absolute;
     top: 84%;

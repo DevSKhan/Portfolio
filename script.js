@@ -52,7 +52,7 @@ function Page1Animation() {
   });
 
   gsap.to("#workButton", {
-    y: "305%",
+    y: "400%",
     scrollTrigger: {
       trigger: "#workButton",
       scroller: "#main",
