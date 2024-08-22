@@ -64,6 +64,17 @@ function Page1Animation() {
 }
 Page1Animation();
 
+function textMorquee() {
+  let tame = gsap.timeline({ repeat: -1, default: { duration: 2 } });
+  tame.to(".mySkill", { yPercent: -100, delay: 2 });
+  tame.to(".mySkill", { yPercent: -200, delay: 2 });
+  tame.to(".mySkill", { yPercent: -300, delay: 2 });
+  tame.to(".mySkill", { yPercent: -400, delay: 2 });
+  tame.to(".mySkill", { yPercent: -500, delay: 2 });
+  tame.to(".mySkill", { yPercent: 0, delay: 2 });
+}
+textMorquee();
+
 function Page2Animation() {
   var tl = gsap.timeline();
   tl.to("#page3", {
@@ -128,57 +139,58 @@ function cardFlip() {
 
   if (cards.length > 0) {
     cards.forEach((card) => {
-      card.addEventListener('click', function() {
-        card.classList.toggle('is-flipped');
+      card.addEventListener("click", function () {
+        card.classList.toggle("is-flipped");
       });
     });
   } else {
     console.error("No elements found with the class '.flip-box-inner-skill'");
   }
-}  
+}
 
-cardFlip()
+cardFlip();
 
-function Page4BoxPin(){
-  gsap.to('.back-3D-Box',{
-    scrollTrigger:{
-      trigger:'.back-3D-Box',
-      scroller:'#main',
-      start:'top 20%',
-      end:'bottom -300%',
-      pin:true
-    }
-  })
+function Page4BoxPin() {
+  gsap.to(".back-3D-Box", {
+    scrollTrigger: {
+      trigger: ".back-3D-Box",
+      scroller: "#main",
+      start: "top 20%",
+      end: "bottom -300%",
+      pin: true,
+    },
+  });
 }
 // Page4BoxPin()
 
 function pinningService() {
   const details = gsap.utils.toArray(".service-about");
   const photos = gsap.utils.toArray(".left-photos");
-  
+
   // Initially hide all photos except the first one
   gsap.set(photos.slice(1), { yPercent: 101 });
-  
+
   let mm = gsap.matchMedia();
-  
+
   mm.add("(min-width: 600px)", () => {
     // Pinning the left photos container
-    gsap.to('.left-pin', {
+    gsap.to(".left-pin", {
       scrollTrigger: {
-        trigger: '.left-pin',
-        scroller: '#main',
-        start: 'top 20%',
-        end: 'bottom -750%',
+        trigger: ".left-pin",
+        scroller: "#main",
+        start: "top 20%",
+        end: "bottom -750%",
         pin: true,
         pinSpacing: false,
-      }
+      },
     });
 
     // Loop through each service-about section to set up individual animations
     details.forEach((detail, index) => {
       if (index === 0) return; // Skip the first one as it's the initial visible state
-      
-      let animation = gsap.timeline()
+
+      let animation = gsap
+        .timeline()
         .to(photos[index], { yPercent: 0 }) // Bring in the next photo
         .to(photos[index - 1], { autoAlpha: 0 }, 0); // Fade out the previous photo
 
@@ -187,7 +199,7 @@ function pinningService() {
         start: "top 80%",
         end: "bottom 80%",
         animation: animation,
-        scroller: '#main',
+        scroller: "#main",
         scrub: true,
       });
     });
@@ -199,4 +211,58 @@ function pinningService() {
 }
 
 pinningService();
+
+function mouseCard() {
+  // Select all project boxes
+  const projectBoxes = document.querySelectorAll(".project-box");
+
+  projectBoxes.forEach((box) => {
+    const ball = box.querySelector(".Click-to-view"); // Select the ball within this project-box
+    const projectImage = box.querySelector(".project-image"); // Select the project image within this project-box
+
+    // Ensure ball is hidden initially
+    ball.style.display = "none";
+
+    box.addEventListener("mouseenter", function (event) {
+      // Reduce opacity of the project image of the hovered box
+      projectImage.style.opacity = ".5";
+
+      // Hide all balls
+      document.querySelectorAll(".Click-to-view").forEach((b) => (b.style.display = "none"));
+
+      // Show ball of the currently hovered box
+      ball.style.display = "block";
+
+      // Position the ball exactly where the mouse enters
+      updateBallPosition(event, box);
+    });
+
+    box.addEventListener("mousemove", function (event) {
+      // Move the ball as the mouse moves within the box
+      updateBallPosition(event, box);
+    });
+
+    box.addEventListener("mouseleave", function () {
+      // Hide ball when mouse leaves
+      ball.style.display = "none";
+      
+      // Reset opacity of the project image of the box
+      projectImage.style.opacity = "1";
+    });
+
+    function updateBallPosition(event, box) {
+      let rect = box.getBoundingClientRect(); // Get the bounding rectangle of the box
+      let xvalue = event.clientX - rect.left; // Calculate x relative to the box
+      let yvalue = event.clientY - rect.top; // Calculate y relative to the box
+
+      ball.style.left = `${xvalue}px`;
+      ball.style.top = `${yvalue}px`;
+    }
+  });
+}
+
+// Call the function to apply the event listeners
+mouseCard();
+
+
 

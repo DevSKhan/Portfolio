@@ -114,6 +114,7 @@ body {
 }
 
 .mySkillContainer {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,9 +123,11 @@ body {
 }
 
 .skillBox {
+    position: absolute;
     width: 30vw;
     height: 5vh;
     overflow: hidden;
+    
 }
 
 .mySkill {
@@ -147,7 +150,6 @@ body {
     height: 20vw;
     perspective: 1000px;
     z-index: 99;
-
 }
 
 .flip-box-inner img {
@@ -531,7 +533,7 @@ body {
     justify-content: center;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 120%;
     transform: translate(-50%, -50%);
     width: 20vw;
     height: 13vh;
@@ -879,6 +881,7 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
 .project{
     width: 100vw;
     height: 10vh;
@@ -902,7 +905,60 @@ body {
     height: 80vh;
     padding: 0px 50px;
 }
+.Click-to-view{ 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 9;
+    width: 13vw;
+    height: 4vw;
+    border-radius: 50px;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 255, 255);
+    display: none;
+    overflow: hidden;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.view{
+    font-size: 1.1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 5px;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.viewIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    background-color: black;
+    border-radius: 50%;
+    top: 0%;
+    right: -30%;
+    color: #fff;
+    font-size: 20px;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.view h4{
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.Click-to-view:hover .viewIcon{
+    transform: rotate(-90deg);
+    right: 0%;
+}
+.Click-to-view:hover h4{
+    margin-right: 30px;
+}
+
 .project-box{
+    cursor: pointer;
+    position: relative;
     width: 43vw;
     height: 70vh;
     border-radius: 30px;
@@ -924,6 +980,9 @@ body {
     height: 50vh;
     border-radius: 30px;
     background-color: black;
+}
+.project-image:hover{
+    opacity: .5;
 }
 .project-image img{
     width: 100%;
