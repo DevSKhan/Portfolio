@@ -1661,9 +1661,13 @@ body {
         text-align: center;
     }
     .viewMore{
+        z-index: 9;
         height: 10vh;
         width: 50vw;
         top: 115%;
+    }
+    .viewMore:hover{
+        width: 60vw;
     }
     .footer{
         height: 50vh;
