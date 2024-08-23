@@ -1295,6 +1295,13 @@ body {
     left: 0%;
     transform: rotate(90deg);
 }
+.content-update{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+}
 
 @media screen and (max-width: 1120px) {
     #navCenter {
@@ -1709,5 +1716,16 @@ body {
     }
     .project-three-container{
         top: 60%;
+    }
+    .moveBack{
+        height: 10vh;
+        width: 50vw;
+    }
+    .moveicon{
+        left: -42%;
+    }
+    .content-update{
+        font-size: 15px;
+        text-align: center;
     }
 }
