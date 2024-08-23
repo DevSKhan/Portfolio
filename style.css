@@ -1661,6 +1661,7 @@ body {
         text-align: center;
     }
     .viewMore{
+        color: #000;
         z-index: 9;
         height: 10vh;
         width: 50vw;
