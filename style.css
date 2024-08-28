@@ -1770,5 +1770,10 @@ body {
         font-size: 15px;
         text-align: center;
     }
-
+    .tapToView{
+        display: none;
+    }
+    .Click-to-view{
+        display: none;
+    }
 }
