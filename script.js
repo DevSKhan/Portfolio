@@ -40,6 +40,72 @@ function loco() {
 
 loco();
 
+function loading(){
+  var timeLoading = gsap.timeline()
+  timeLoading
+  .to('.loader',{
+    scale:'1',
+    duration:1,
+    delay:1,
+    ease:'expo.easeInOut'
+  })
+  .to('.loader',{
+    width:'10vw',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    height:'5vh',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    width:'20vw',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    height:'10vh',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    width:'30vw',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    height:'15vh',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    height:'20vh',
+    rotate:'90',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    height:'100vh',
+    duration:.5,
+    ease:'expo.easeOut'
+  })
+  .to('.loader',{
+    scale:'2'
+  })
+  .to('.loader',{
+    scale:'1.5',
+    opacity:0,
+    duration:.5,
+  })
+  .to('#loading',{
+    display:'none',
+    delay:-0.7
+  })
+  
+}
+loading()
+
 function Page1Animation() {
   gsap.to(".textBox", {
     scrollTrigger: {
@@ -63,6 +129,8 @@ function Page1Animation() {
   });
 }
 Page1Animation();
+
+
 
 function textMorquee() {
   let tame = gsap.timeline({ repeat: -1, default: { duration: 2 } });
