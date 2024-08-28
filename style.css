@@ -545,8 +545,8 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 50%;
-    left: 120%;
+    top: 90%;
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 20vw;
     height: 13vh;
@@ -554,6 +554,7 @@ body {
     border: 5px solid #e3e3e3;
     overflow: hidden;
     z-index: -9;
+    color: #000;
 }
 
 #resumeButton h1 {
@@ -585,7 +586,24 @@ body {
     width: 100vw;
     height: 100vh;
 }
-
+.tapToView{
+    position: absolute;
+    top: 10%;
+    z-index: 9;
+    width: 10vw;
+    height: 6vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 20px #c5c5c5dc,
+    -2px -2px 10px #c5c5c5dc;
+}
+.tapToView h5{
+    margin: 10px 0px;
+    text-align: center;
+}
 .mySkillTopic {
     position: absolute;
     top: 15%;
@@ -1092,6 +1110,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    color: #000;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -1728,4 +1747,5 @@ body {
         font-size: 15px;
         text-align: center;
     }
+
 }

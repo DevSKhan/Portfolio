@@ -83,7 +83,7 @@ function Page2Animation() {
       scroller: "#main",
       start: "top top",
       pin: true,
-      end: "bottom -200%",
+      end: "bottom -180%",
     },
   })
     .from(".aboutBox-1", {
@@ -129,7 +129,9 @@ function Page2Animation() {
         end: "bottom 50%",
         scrub: true,
       },
-    });
+    })
+    
+
 }
 
 Page2Animation();
@@ -266,3 +268,58 @@ mouseCard();
 
 
 
+
+function backgroundColor(){
+  var mode = document.querySelector("#main");
+  var nav = document.querySelector("#navCenter");
+  nav.addEventListener('click',function(){
+    mode.style.backgroundColor= '#000';
+    console.log('hey')
+  })
+}
+// backgroundColor()
+
+
+function TapToView(){
+  const projectBoxes = document.querySelectorAll(".box-outer-mySkill");
+
+  projectBoxes.forEach((box) => {
+    const ball = box.querySelector(".tapToView"); // Select the ball within this project-box
+
+    // Ensure ball is hidden initially
+    ball.style.display = "none";
+
+    box.addEventListener("mouseenter", function (event) {
+
+      // Hide all balls
+      document.querySelectorAll(".tapToView").forEach((b) => (b.style.display = "none"));
+
+      // Show ball of the currently hovered box
+      ball.style.display = "block";
+
+      // Position the ball exactly where the mouse enters
+      updateBallPosition(event, box);
+    });
+
+    box.addEventListener("mousemove", function (event) {
+      // Move the ball as the mouse moves within the box
+      updateBallPosition(event, box);
+    });
+
+    box.addEventListener("mouseleave", function () {
+      // Hide ball when mouse leaves
+      ball.style.display = "none";
+      
+    });
+
+    function updateBallPosition(event, box) {
+      let rect = box.getBoundingClientRect(); // Get the bounding rectangle of the box
+      let xvalue = event.clientX - rect.left; // Calculate x relative to the box
+      let yvalue = event.clientY - rect.top; // Calculate y relative to the box
+
+      ball.style.left = `${xvalue}px`;
+      ball.style.top = `${yvalue}px`;
+    }
+  });
+}
+TapToView()
